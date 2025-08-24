@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Text;
 using System.Text.Json;
 using System.Windows.Forms;
@@ -53,9 +52,8 @@ namespace HAM
 
         public MainForm()
         {
-            Init();
-            //MessageBox.Show(ABank.Count.ToString() + " " + BBank.Count.ToString()+ " "+ CBank.Count.ToString() + " " + DBank.Count.ToString());
             InitializeComponent();
+            Init();
         }
 
         /// <summary>
@@ -100,6 +98,7 @@ namespace HAM
             {
                 UD = new UserData();
             }
+            QueTextBox.Text = "欢迎来到业余无线电刷题软件！请根据菜单栏的题库和模式选择题库练习或模拟考试。\n请记得时常点击左上角的“保存当前进度”来保存当前的练习记录，点击右上角的关闭按钮时在弹出的消息框中点“是”会保存当前进度后再退出，点击“否”则直接退出，点击“取消”则不会退出。\n使用练习模式时加载较慢，这是由练习模式创建按钮数量较大导致。\n由于本人的能力有限，程序的诸多不便之处敬请谅解。";
         }
 
         /// <summary>
@@ -220,7 +219,7 @@ namespace HAM
         private void ShowQuestion()
         {
             // 显示题目信息
-            QueTextBox.Text = String.Format("{0}\t\t{1}\t\t{2}\t\t第{3}题\n{4}",
+            QueTextBox.Text = String.Format("{0}    {1}    {2}\t\t第{3}题\n{4}",
                 UD.NowBank[UD.NowInfo[UD.NowIndex].QuestionId].J,
                 UD.NowBank[UD.NowInfo[UD.NowIndex].QuestionId].P,
                 UD.NowBank[UD.NowInfo[UD.NowIndex].QuestionId].I,
@@ -936,7 +935,7 @@ namespace HAM
         /// <param name="e"></param>
         private void ButtonAbout_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("作者：一只学生兔\n欢迎与本人联系！\n电话：13734178206\nQQ：2218624634", "关于", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("作者：一只学生兔\n欢迎各位HAM提出建议或贡献代码！项目链接：https://github.com/liuyang9851/HAM\n欢迎与本人联系！\n电话：13734178206\nQQ：2218624634", "关于", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         /// <summary>
