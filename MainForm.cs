@@ -840,6 +840,12 @@ namespace HAM
             }
             ChoColor();
             QueChoColor(UD.NowIndex);
+
+            // 如果作答正确就直接跳转下一题
+            if(UD.NowInfo[UD.NowIndex].IfRight == true && UD.NowIndex < UD.NowCount - 1)
+            {
+                NextQuebutton_Click(null, null);
+            }
         }
 
         /// <summary>
